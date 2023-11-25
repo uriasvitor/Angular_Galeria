@@ -1,0 +1,31 @@
+.login-container{
+  background-image: url("../../assets/background/background-login.jpg");
+  height: 100vh;
+  Backdrop-filter: blur;
+  .content{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+
+    .login-section{
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      margin: 50px 0 0 0;
+      max-width: 700px;
+      background-color: rgba(31, 31, 31, 0.274);
+      border-radius: 36px;
+      align-items: center;
+      flex-direction: column;
+
+      .title{
+          h1{
+            padding: 10px 0 0 0;
+            color: #ffff;
+            font-family: 'Roboto', sans-serif;
+          }
+      }
+
+    }
+  }
+}
