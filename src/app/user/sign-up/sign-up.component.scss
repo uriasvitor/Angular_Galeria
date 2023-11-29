@@ -1,0 +1,56 @@
+.container{
+
+  form, .email, .password, .age, .username{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+    .title-signin{
+      color: #563B2Bff;
+      font-family: 'Roboto';
+    }
+
+    label{
+      color: #563B2Bff;
+      font-family: 'Roboto';
+      padding: 10px;
+      font-weight: 500;
+      font-size: 16px;
+      margin: 5px;
+    }
+
+    .email, .password, .age{
+      border-bottom: 2px solid #563B2Bff;
+    }
+    input[type="email"],input[type="password"],
+    input[type="number"],input[type="text"]
+    {
+      padding: 6px;
+      border: 0;
+      width: 100%;
+    }
+
+    .signup-button{
+      outline: none;
+      border: 0;
+      text-decoration: none;
+      margin-top: 20px;
+      padding: 16px;
+      font-size: 16px;
+      color: #ffff;
+      background-color: #5d4332;
+      font-weight: bold;
+      border-radius: 10px;
+      cursor: pointer;
+
+      &:hover{
+        background-color: #38281e;
+      }
+
+      &:disabled{
+        background-color: rgb(133, 132, 132);
+        cursor: not-allowed;
+      }
+    }
+  }
+}

@@ -3,18 +3,34 @@
   padding: 20px;
 
   .tab{
-    background-color: rgb(77, 184, 255);
     margin: 0 12px 0 0;
-    font-size: 20px;
-    color: #ffff;
+    font-size: 23px;
+    color: #563B2Bff;
+    font-weight: bold;
     padding: 15px;
-    border-radius: 10px;
     font-family: 'Roboto', sans-serif;
+    cursor: pointer;
 
+    &.active{
+      border-bottom: 2px solid #563B2Bff;
+    }
+
+    &:hover{
+      border-bottom: 2px solid #563B2Bff;
+    }
   }
 
   .tab  + .tab{
-    background-color: rgb(255, 0, 0);
+    color: #CCC1B4ff;
     margin: 0;
+
+    &.active{
+      border-bottom: 2px solid #CCC1B4ff;
+    }
+
+    &:hover{
+      border-bottom: 2px solid #CCC1B4ff;
+    }
+
   }
 }

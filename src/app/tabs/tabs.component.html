@@ -2,7 +2,6 @@
 <div class="container">
   <a class="tab" (click)="selectTab('signIn')" [class.active]="selectedTab === 'signIn'">Sign in</a>
   <a class="tab" (click)="selectTab('signUp')" [class.active]="selectedTab === 'signUp'">Sign Up</a>
-
 </div>
 
 <ng-content *ngIf="selectedTab === 'signIn'" select="app-sign-in"></ng-content>

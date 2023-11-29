@@ -6,7 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./tabs.component.scss']
 })
 export class TabsComponent {
-  selectedTab: string = '';
+  selectedTab: string = 'signIn';
 
   selectTab(tab: string): void {
     this.selectedTab = tab;
