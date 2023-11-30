@@ -16,8 +16,17 @@ const routes: Routes =[
   },
   {
     path:'',
-    redirectTo: "/login",
+    redirectTo: "/home",
     pathMatch: 'full'
+  },
+  {
+    path:'**',
+    component:HomeComponent
+  },
+  {
+    path:'nav',
+    component:NavComponent
+
   }
 ]
 

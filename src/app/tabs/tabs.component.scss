@@ -1,17 +1,18 @@
 .container{
   display: flex;
-  padding: 20px;
+  padding: 10px;
 
   .tab{
     margin: 0 12px 0 0;
     font-size: 23px;
-    color: #563B2Bff;
+    color: #CCC1B4ff;
     font-weight: bold;
     padding: 15px;
     font-family: 'Roboto', sans-serif;
     cursor: pointer;
 
     &.active{
+      color: #563B2Bff;
       border-bottom: 2px solid #563B2Bff;
     }
 
@@ -25,7 +26,8 @@
     margin: 0;
 
     &.active{
-      border-bottom: 2px solid #CCC1B4ff;
+      color: #563B2Bff;
+      border-bottom: 2px solid #563B2Bff;
     }
 
     &:hover{
