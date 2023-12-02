@@ -4,9 +4,11 @@
       <img src="../../assets/logo/logo_galeria.png" alt="">
     </div>
     <div class="titulo">Galeria</div>
-    <div class="upload-section">
+    <div class="upload-section" (click)="openModal($event)">
       <div class="upload-button">Upload Image</div>
       <img class="upload-icon" src="../../assets/logo/upload-icon.png">
     </div>
   </nav>
 </header>
+
+<app-modal [modalID]="'upload'"></app-modal>

@@ -1,0 +1,12 @@
+<div id="modal" [ngClass]="{ hidden: !modal.isModalOpen(modalID) }">
+  <div class="modal-content">
+    <div class="wrapper">
+      <div class="controls">
+        <button class="close-button" (click)="closeModal()">Close</button>
+      </div>
+
+      <app-upload></app-upload>
+      <!-- <ng-container *ngTemplateOutlet="modalContent"></ng-container> -->
+    </div>
+  </div>
+</div>

@@ -4,6 +4,7 @@ import { LoginComponent } from './login/login.component';
 import { SignInComponent } from './user/sign-in/sign-in.component';
 import { HomeComponent } from './home/home.component';
 import { NavComponent } from './nav/nav.component';
+import { UploadComponent } from './image/upload/upload.component';
 
 const routes: Routes =[
   {
@@ -15,6 +16,11 @@ const routes: Routes =[
     component:SignInComponent
   },
   {
+    path:'upload',
+    component:UploadComponent
+
+  },
+  {
     path:'',
     redirectTo: "/home",
     pathMatch: 'full'
@@ -22,11 +28,6 @@ const routes: Routes =[
   {
     path:'**',
     component:HomeComponent
-  },
-  {
-    path:'nav',
-    component:NavComponent
-
   }
 ]
 

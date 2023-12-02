@@ -48,7 +48,7 @@
     </div>
     <div class="card">
       <div class="wrapper">
-        <div class="card-image">
+        <div class="card-image" (click)="openModal($event)">
           <img
             class="rounded-image skeleton"
             src="../../assets/background/image.jpg"
@@ -94,3 +94,5 @@
     </div>
   </div>
 </div>
+
+<app-modal [modalID]="'image-details'"></app-modal>
