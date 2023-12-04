@@ -1,15 +1,31 @@
 <div class="container">
-  <form novalidate>
+  <form novalidate #loginForm="ngForm" (ngSubmit)="login()">
     <div class="email">
       <label>Email</label>
-      <input type="email" name="email" class="email">
+      <input
+          type="email"
+          name="email"
+          class="email"
+          #email="ngModel"
+          [(ngModel)]="credentials.email"
+          >
     </div>
     <div class="password">
       <label>Password</label>
-      <input type="password" name="password" class="password">
+      <input
+          type="password"
+          name="password"
+          class="password"
+          #email="ngModel"
+          [(ngModel)]="credentials.password"
+          >
     </div>
 
-    <button class="signin-button" type="submit" routerLink="/home">Login</button>
+    <button
+      class="signin-button"
+      type="submit"
+      [disabled]="loginForm.invalid"
+      >Login</button>
   </form>
 </div>
 

@@ -15,6 +15,9 @@ import { SignUpComponent } from './user/sign-up/sign-up.component';
 import { AuthModalComponent } from './user/auth-modal/auth-modal.component';
 import { ModalComponent } from './shared/modal/modal.component';
 import { UploadComponent } from './image/upload/upload.component';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -36,7 +39,11 @@ import { UploadComponent } from './image/upload/upload.component';
     RouterOutlet,
     RouterModule,
     RouterLink,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
+    SharedModule
   ],
   providers: [],
   bootstrap: [AppComponent]

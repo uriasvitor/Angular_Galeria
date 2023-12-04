@@ -2,7 +2,8 @@ import { Injectable, OnDestroy } from "@angular/core";
 
 interface IModal {
   id:string,
-  visible:boolean
+  visible:boolean,
+  componentType?: any;
 }
 
 @Injectable({
@@ -28,16 +29,13 @@ export class modalService {
   }
 
   isModalOpen(id: string) : boolean {
-    console.log(id)
     return !!this.modals.find(element => element.id === id)?.visible
   }
 
   toggleModal(id:string){
    const modal = this.modals.find(element => element.id === id)
-   console.log(modal)
     if(modal) {
       modal.visible = !modal.visible
-      console.log(modal)
     }
   }
 

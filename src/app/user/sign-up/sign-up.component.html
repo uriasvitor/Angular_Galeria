@@ -1,25 +1,36 @@
+<app-alert *ngIf="showAlert" [color]="alertColor">
+  {{ alertMsg }}
+</app-alert>
+
 <div class="container">
-  <form>
-    <div class="email">
+  <form [formGroup]="registerForm" (ngSubmit)="register()">
+    <div class="field">
       <label for="username">Username</label>
-      <input type="text" name="username" class="username">
+      <app-input type="text" name="username" class="username inputfield"  [control]="userName" ></app-input>
+
     </div>
 
-    <div class="password">
-      <label for="username">Email</label>
-      <input type="email" name="password" class="password">
+    <div class="field">
+      <label for="email">Email</label>
+      <app-input type="email" name="email" class="email inputfield" [control]="email" ></app-input>
+
     </div>
 
-    <div class="age">
+    <div class="field">
       <label for="age">Age</label>
-      <input type="number" name="number" class="number">
+      <app-input type="number" name="age" class="age inputfield"  [control]="age" ></app-input>
     </div>
 
-    <div class="password">
+    <div class="field">
       <label for="password">Password</label>
-      <input type="email" name="email" class="password">
+      <app-input [control]="password" type="password" name="password" class="password inputfield" ></app-input>
     </div>
 
-    <button class="signup-button" type="submit"> Create Account</button>
+    <div class="field">
+      <label for="confirm-password">Confirm Password</label>
+      <app-input type="password" [control]="confirm_password" name="confirm_password" class="confirm-password inputfield"></app-input>
+    </div>
+
+    <button class="signup-button" type="submit" [disabled]="registerForm.invalid || inSubmission"> Create Account</button>
   </form>
 </div>

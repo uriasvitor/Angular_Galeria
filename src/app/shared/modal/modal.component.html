@@ -4,9 +4,7 @@
       <div class="controls">
         <button class="close-button" (click)="closeModal()">Close</button>
       </div>
-
-      <app-upload></app-upload>
-      <!-- <ng-container *ngTemplateOutlet="modalContent"></ng-container> -->
+      <ng-content></ng-content>
     </div>
   </div>
 </div>

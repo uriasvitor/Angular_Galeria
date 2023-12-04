@@ -1,0 +1,26 @@
+
+
+.msg{
+  font-family: 'Roboto';
+  font-size: 15px;
+  font-weight: bold;
+  margin: 10px;
+}
+
+.error{
+  color: #ff3939;
+}
+
+input{
+  padding: 5px;
+  border: 0;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="email"],
+input[type="number"]{
+  border-bottom: 2px solid #563b2b;
+}
+
+

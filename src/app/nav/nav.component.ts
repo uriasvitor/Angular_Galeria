@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { modalService } from '../services/modal.service';
+import { UploadComponent } from '../image/upload/upload.component';
 
 @Component({
   selector: 'app-nav',

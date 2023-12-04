@@ -1,6 +1,6 @@
 .container{
 
-  form, .email, .password, .age, .username{
+  form, .field{
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -13,21 +13,16 @@
     label{
       color: #563B2Bff;
       font-family: 'Roboto';
-      padding: 10px;
+      padding: 5px;
       font-weight: 500;
       font-size: 16px;
       margin: 5px;
     }
 
-    .email, .password, .age{
-      border-bottom: 2px solid #563B2Bff;
-    }
-    input[type="email"],input[type="password"],
-    input[type="number"],input[type="text"]
-    {
-      padding: 6px;
-      border: 0;
-      width: 100%;
+    .field {
+      display: flex;
+      align-items: center;
+      flex-direction: column;
     }
 
     .signup-button{
@@ -51,6 +46,15 @@
         background-color: rgb(133, 132, 132);
         cursor: not-allowed;
       }
+    }
+
+    .inputfield{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      padding: 0 20px;
+
     }
   }
 }
