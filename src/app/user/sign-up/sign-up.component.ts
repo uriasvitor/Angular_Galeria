@@ -62,9 +62,7 @@ export class SignUpComponent {
     this.authService.register(user).subscribe({
       next:(data)=>{
         this.signUpEventEmit.emit({message:'Account has been created!', alertColorBg:'green', showAlert: true})
-
         console.log(data)
-
         this.inSubmission = false;
 
         this.registrationSucess.emit()
