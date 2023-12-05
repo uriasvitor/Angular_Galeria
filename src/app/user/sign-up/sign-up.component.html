@@ -1,9 +1,7 @@
-<app-alert *ngIf="showAlert" [color]="alertColor">
-  {{ alertMsg }}
-</app-alert>
-
 <div class="container">
-  <form [formGroup]="registerForm" (ngSubmit)="register()">
+  <app-loading *ngIf="inSubmission"></app-loading>
+
+  <form [formGroup]="registerForm" (ngSubmit)="register()" *ngIf="!inSubmission">
     <div class="field">
       <label for="username">Username</label>
       <app-input type="text" name="username" class="username inputfield"  [control]="userName" ></app-input>

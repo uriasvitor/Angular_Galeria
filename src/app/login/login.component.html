@@ -1,4 +1,8 @@
 <div class="container">
+  <app-alert *ngIf="showAlert" [color]="alertColorBg">
+    {{ alertMsg }}
+  </app-alert>
+
   <div class="content">
     <div class="login-section">
       <div class="left-side">
@@ -6,9 +10,9 @@
       </div>
       <div class="right-side">
         <div class="inner-right">
-          <app-tabs>
+          <app-tabs [selectedTab]="redirectTab">
             <app-sign-in></app-sign-in>
-            <app-sign-up></app-sign-up>
+            <app-sign-up (signUpEventEmit)="alertProps($event)" (registrationSucess)="redirectToLogin()"></app-sign-up>
           </app-tabs>
         </div>
       </div>

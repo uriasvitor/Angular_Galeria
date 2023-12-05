@@ -1,8 +1,7 @@
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from './../../services/auth.service';
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { RegisterValidators } from 'src/app/validators/RegisterValidators';
-import { IUser } from 'src/app/models/user.model';
 
 @Component({
   selector: 'app-sign-up',
@@ -11,11 +10,10 @@ import { IUser } from 'src/app/models/user.model';
 })
 export class SignUpComponent {
   @Input() title = 'SignUp'
+  @Output() signUpEventEmit = new EventEmitter<{message:string, alertColorBg:string, showAlert:boolean}>
+  @Output() registrationSucess = new EventEmitter<void>
 
-  inSubmission = false
-  alertMsg = "Wait a moment.."
-  alertColor = 'red'
-  showAlert = false;
+  inSubmission = false;
 
   constructor(private authService:AuthService, private fb:FormBuilder){}
 
@@ -59,22 +57,22 @@ export class SignUpComponent {
     const normalizedAge = typeof Number(age) === 'number' ? Number(age) : 18;
     const normalizedPassword = password ?? '';
 
-    this.showAlert = true
-    this.inSubmission = true
-    this.alertColor = 'blue'
-    this.alertMsg = 'Account is being created..'
+    this.signUpEventEmit.emit({message:'Account is being created..', alertColorBg:'brown', showAlert: true})
+    this.inSubmission = true;
 
     this.authService.register(normalizedUserName, normalizedEmail, normalizedAge, normalizedPassword).subscribe({
       next:(data)=>{
-        this.alertMsg = 'Account has been created!'
-        this.alertColor = 'green'
+        this.signUpEventEmit.emit({message:'Account has been created!', alertColorBg:'green', showAlert: true})
+
         console.log(data)
 
+        this.registrationSucess.emit()
         this.registerForm.reset();
 
       },error:(e)=>{
-        this.alertMsg = 'An unexpected error occurred. Please try again later'
-        this.alertColor = 'red'
+
+        this.signUpEventEmit.emit({message:'An unexpected error occurred. Please try again later', alertColorBg:'red', showAlert: true})
+
         this.inSubmission = false
         console.log(e)
       }
