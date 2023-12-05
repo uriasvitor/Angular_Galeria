@@ -1,3 +1,4 @@
 export const environment = {
-  apiUrl: 'http://localhost:3000/'
+  userApi: 'https://back-end-galeria.onrender.com/api/user/',
+  photoApi: 'https://back-end-galeria.onrender.com/api/photo/'
 };

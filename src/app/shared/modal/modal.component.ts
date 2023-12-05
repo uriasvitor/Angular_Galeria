@@ -1,4 +1,4 @@
-import { Component, ElementRef, Input, OnDestroy, OnInit, ViewChild, ViewContainerRef } from "@angular/core";
+import { Component, ElementRef, Input, OnDestroy, OnInit } from "@angular/core";
 import { modalService } from "src/app/services/modal.service";
 
 @Component({
@@ -21,8 +21,6 @@ export class ModalComponent implements OnInit, OnDestroy{
 
 
   closeModal(): void {
-    console.log(this.modalID)
-    console.log(this.el.nativeElement)
     this.modal.toggleModal(this.modalID);
   }
 

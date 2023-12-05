@@ -2,6 +2,7 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 import { AuthService } from './../../services/auth.service';
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { RegisterValidators } from 'src/app/validators/RegisterValidators';
+import { IUser } from 'src/app/models/user.model';
 
 @Component({
   selector: 'app-sign-up',
@@ -15,7 +16,7 @@ export class SignUpComponent {
 
   inSubmission = false;
 
-  constructor(private authService:AuthService, private fb:FormBuilder){}
+  constructor(private authService:AuthService){}
 
   userName = new FormControl('',[
     Validators.required,
@@ -43,7 +44,7 @@ export class SignUpComponent {
   ])
 
   registerForm = new FormGroup({
-    userName:this.userName,
+    username:this.userName,
     email:this.email,
     age: this.age,
     password:this.password,
@@ -51,20 +52,20 @@ export class SignUpComponent {
   },[RegisterValidators.match('password','confirm_password')])
 
   register(){
-    const { userName, email, age, password} = this.registerForm.value
-    const normalizedUserName = userName ?? '';
-    const normalizedEmail = email ?? '';
-    const normalizedAge = typeof Number(age) === 'number' ? Number(age) : 18;
-    const normalizedPassword = password ?? '';
+    const user: any = this.registerForm.value;
+    delete user.confirm_password;
+
 
     this.signUpEventEmit.emit({message:'Account is being created..', alertColorBg:'brown', showAlert: true})
     this.inSubmission = true;
 
-    this.authService.register(normalizedUserName, normalizedEmail, normalizedAge, normalizedPassword).subscribe({
+    this.authService.register(user).subscribe({
       next:(data)=>{
         this.signUpEventEmit.emit({message:'Account has been created!', alertColorBg:'green', showAlert: true})
 
         console.log(data)
+
+        this.inSubmission = false;
 
         this.registrationSucess.emit()
         this.registerForm.reset();

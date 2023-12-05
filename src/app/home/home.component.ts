@@ -14,21 +14,21 @@ export class HomeComponent {
   constructor(private modal: modalService, private galeriaService:GaleriaService){}
 
 
-  ngOnInit(): void {
-    this.modal.register('image-details');
-    this.getUserImage()
-  }
+  // ngOnInit(): void {
+  //   this.modal.register('image-details');
+  //   this.getUserImage()
+  // }
 
-  getUserImage(){
-    this.galeriaService.getAllImages().subscribe({
-      next:(data)=>{
-        console.log(data)
-      },
-      error:(err)=>{
-        console.log(err)
-      }
-    })
-  }
+  // getUserImage(){
+  //   this.galeriaService.getAllImages().subscribe({
+  //     next:(data)=>{
+  //       console.log(data)
+  //     },
+  //     error:(err)=>{
+  //       console.log(err)
+  //     }
+  //   })
+  // }
 
   openModal(e:Event){
     e.preventDefault();

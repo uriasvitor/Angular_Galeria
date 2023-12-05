@@ -8,11 +8,11 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class GaleriaService {
-  apiUrl = environment.apiUrl
+  // apiUrl = environment.apiUrl
 
-  constructor(private http: HttpClient) { }
+  // constructor(private http: HttpClient) { }
 
-  getAllImages(): Observable<IGaleria>{
-    return this.http.get<IGaleria>(this.apiUrl)
-  }
+  // getAllImages(): Observable<IGaleria>{
+  //   return this.http.get<IGaleria>(this.apiUrl)
+  // }
 }
