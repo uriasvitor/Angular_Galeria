@@ -1,7 +1,8 @@
 <div class="container">
-  <app-loading *ngIf="inSubmission"></app-loading>
 
-  <form [formGroup]="registerForm" (ngSubmit)="register()" *ngIf="!inSubmission">
+  <app-loading *ngIf="inLoading"></app-loading>
+
+  <form [formGroup]="registerForm" (ngSubmit)="register()" *ngIf="!inLoading">
     <div class="field">
       <label for="username">Username</label>
       <app-input type="text" name="username" class="username inputfield"  [control]="userName" ></app-input>
@@ -29,6 +30,6 @@
       <app-input type="password" [control]="confirm_password" name="confirm_password" class="confirm-password inputfield"></app-input>
     </div>
 
-    <button class="signup-button" type="submit" [disabled]="registerForm.invalid || inSubmission"> Create Account</button>
+    <button class="signup-button" type="submit" [disabled]="registerForm.invalid || inLoading"> Create Account</button>
   </form>
 </div>

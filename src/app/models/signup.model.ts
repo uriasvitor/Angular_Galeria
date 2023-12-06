@@ -1,4 +1,4 @@
-export interface IUser{
+export interface ISignup{
   username?: string | null | undefined;
   email?: string | null;
   age?: number | null;

@@ -1,6 +1,9 @@
 .container{
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
-  form, .email, .password{
+  form{
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -19,7 +22,12 @@
       margin: 5px;
     }
 
-    .email, .password{
+    .field {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+
       border-bottom: 2px solid #563B2Bff;
     }
 
@@ -51,5 +59,12 @@
         cursor: not-allowed;
       }
     }
+  }
+}
+
+
+.msg{
+  &.error{
+    color: red;
   }
 }

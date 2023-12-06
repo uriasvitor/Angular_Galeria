@@ -1,5 +1,6 @@
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from './../../services/auth.service';
-import { Component, Input } from '@angular/core';
+import { Component, Input} from '@angular/core';
 
 @Component({
   selector: 'app-sign-in',
@@ -8,21 +9,31 @@ import { Component, Input } from '@angular/core';
 })
 export class SignInComponent {
   @Input() title = 'SignIn'
+  inLoading = false;
 
-  credentials = {
-    email: '',
-    password: ''
-  }
+  formLogin = new FormGroup(
+    {
+      email:new FormControl('', Validators.required),
+      password:new FormControl('', Validators.required)
+    }
+  )
 
   constructor(private authService:AuthService){}
 
-  async login(){
-    const {email, password} = this.credentials;
+  login(){
+    const userCredentials = this.formLogin.value
+    this.inLoading = true;
 
-    this.authService.login(email,password).subscribe({
-      next: (data)=>{
+    this.authService.login(userCredentials).subscribe({
+      next:(data:any)=>{
         console.log(data)
+        console.log(data.message)
+        this.inLoading = false;
+      },
+      error:(e)=>{
+        this.inLoading = false;
       }
     })
+
   }
 }

@@ -1,8 +1,7 @@
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from './../../services/auth.service';
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { RegisterValidators } from 'src/app/validators/RegisterValidators';
-import { IUser } from 'src/app/models/user.model';
 
 @Component({
   selector: 'app-sign-up',
@@ -14,7 +13,7 @@ export class SignUpComponent {
   @Output() signUpEventEmit = new EventEmitter<{message:string, alertColorBg:string, showAlert:boolean}>
   @Output() registrationSucess = new EventEmitter<void>
 
-  inSubmission = false;
+  inLoading = false;
 
   constructor(private authService:AuthService){}
 
@@ -57,22 +56,23 @@ export class SignUpComponent {
 
 
     this.signUpEventEmit.emit({message:'Account is being created..', alertColorBg:'brown', showAlert: true})
-    this.inSubmission = true;
+    this.inLoading = true;
 
     this.authService.register(user).subscribe({
-      next:(data)=>{
-        this.signUpEventEmit.emit({message:'Account has been created!', alertColorBg:'green', showAlert: true})
+      next:(data:any)=>{
+        this.signUpEventEmit.emit({message:data.message, alertColorBg:'green', showAlert: true})
         console.log(data)
-        this.inSubmission = false;
+
+        this.inLoading = false;
 
         this.registrationSucess.emit()
         this.registerForm.reset();
 
       },error:(e)=>{
 
-        this.signUpEventEmit.emit({message:'An unexpected error occurred. Please try again later', alertColorBg:'red', showAlert: true})
+        this.signUpEventEmit.emit({message:e.message, alertColorBg:'red', showAlert: true})
 
-        this.inSubmission = false
+        this.inLoading = false
         console.log(e)
       }
     })
