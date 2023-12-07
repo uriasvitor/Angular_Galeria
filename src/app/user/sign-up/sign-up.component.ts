@@ -1,5 +1,5 @@
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { AuthService } from './../../services/auth.service';
+import { AuthService } from '../../services/auth/auth.service';
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { RegisterValidators } from 'src/app/validators/RegisterValidators';
 

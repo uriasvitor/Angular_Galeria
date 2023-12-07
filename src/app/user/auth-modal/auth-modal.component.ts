@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { modalService } from 'src/app/services/modal.service';
+import { modalService } from 'src/app/services/helpers/modal.service';
 
 @Component({
   selector: 'app-auth-modal',

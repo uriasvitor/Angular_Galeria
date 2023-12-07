@@ -17,6 +17,12 @@ export class LoginComponent {
     this.showAlert = event.showAlert;
   }
 
+  alertPropstwo(event: { message: string, alertColorBg: string , showAlert:boolean}){
+    this.alertMsg = event.message;
+    this.alertColorBg = event.alertColorBg;
+    this.showAlert = event.showAlert;
+  }
+
   redirectToLogin(){
     this.redirectTab = 'signIn';
   }

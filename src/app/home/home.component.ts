@@ -1,17 +1,18 @@
-import { GaleriaService } from './../services/galeria.service';
-import { Component } from '@angular/core';
-import { modalService } from '../services/modal.service';
-import { Subscriber } from 'rxjs';
+import { Component, OnInit } from '@angular/core';
+import { modalService } from '../services/helpers/modal.service';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
-export class HomeComponent {
+export class HomeComponent implements OnInit {
 
+  constructor(private modal: modalService){}
 
-  constructor(private modal: modalService, private galeriaService:GaleriaService){}
+  ngOnInit(): void {
+
+  }
 
 
   // ngOnInit(): void {

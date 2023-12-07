@@ -11,7 +11,7 @@
       <div class="right-side">
         <div class="inner-right">
           <app-tabs [selectedTab]="redirectTab">
-            <app-sign-in></app-sign-in>
+            <app-sign-in (signInEventEmit)="alertProps($event)" ></app-sign-in>
             <app-sign-up (signUpEventEmit)="alertProps($event)" (registrationSucess)="redirectToLogin()"></app-sign-up>
           </app-tabs>
         </div>
