@@ -15,9 +15,10 @@ import { SignUpComponent } from './user/sign-up/sign-up.component';
 import { AuthModalComponent } from './user/auth-modal/auth-modal.component';
 import { ModalComponent } from './shared/modal/modal.component';
 import { UploadComponent } from './image/upload/upload.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from './shared/shared.module';
+import { AuthInterceptor } from './helper/authInterceptor';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,7 @@ import { SharedModule } from './shared/shared.module';
     ReactiveFormsModule,
     SharedModule
   ],
-  providers: [],
+  providers: [{ provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi:true}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

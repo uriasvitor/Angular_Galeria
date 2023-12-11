@@ -1,14 +1,18 @@
+import * as moment from "moment";
+
 import { HttpClient } from "@angular/common/http";
-import { Injectable } from "@angular/core";
-import { BehaviorSubject, Observable, delay, map, tap } from "rxjs";
+import { Injectable, inject } from "@angular/core";
+import { Observable, map, tap} from "rxjs";
 import { ISignin } from "../../models/signin.model";
 import { ISignup } from "../../models/signup.model";
 import { environment } from "src/environments/environment.development";
+import { Route } from "@angular/router";
 
 const AUTH_API = environment.userApi;
 
-interface AuthApiResponse {
+interface IAuthToken {
   token: string;
+  expiresIn:string;
 }
 
 @Injectable({
@@ -17,30 +21,39 @@ interface AuthApiResponse {
 
 export class AuthService{
   isLoggedIn = false;
+  http = inject(HttpClient)
 
-  constructor(private http:HttpClient){this.getToken() }
+  constructor(){}
 
-  login(userCredentials:ISignin):Observable<AuthApiResponse>{
-    return this.http.post<AuthApiResponse>(AUTH_API + 'sign-in',userCredentials)
-    .pipe(map(user => {
+  login(userCredentials:ISignin):Observable<IAuthToken>{
+    return this.http.post<IAuthToken>(AUTH_API + 'sign-in', userCredentials)
+    .pipe(tap(authResponse => {
       this.isLoggedIn = true;
-      localStorage.setItem('user', JSON.stringify(user.token));
-      return user;
+      console.log("aqui")
+      this.setSession(authResponse)
+      return authResponse;
     }));
   }
 
-  getToken(){
-    const local = localStorage.getItem('user');
-
-    if (local) {
-      this.isLoggedIn = true;
-    }else{
-      this.isLoggedIn = false;
-    }
+  setSession(authResponse:IAuthToken){
+    const expireAt = moment().add(authResponse.expiresIn, 'second')
+    console.log(authResponse)
+    localStorage.setItem('id_token', authResponse.token)
+    localStorage.setItem('expire_At', JSON.stringify(expireAt.valueOf()))
   }
 
+  getAuthToken(){
+    const authToken = localStorage.getItem('id_token')
+    return authToken;
+  }
+
+  logOut(){
+    localStorage.removeItem('id_token')
+    localStorage.removeItem('expire_At')
+  }
 
   register(user:ISignup):Observable<ISignup>{
-    return this.http.post<ISignup>(AUTH_API + 'sign-up',user)
+    return this.http.post<ISignup>(AUTH_API + 'sign-up', user)
   }
+
 }

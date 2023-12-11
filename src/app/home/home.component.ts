@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { modalService } from '../services/helpers/modal.service';
+import { modalService } from '../services/modal/modal.service';
 
 @Component({
   selector: 'app-home',

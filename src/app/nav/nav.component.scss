@@ -12,7 +12,7 @@ header{
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    padding: 0 40px;
+    padding: 0 12px;
     box-shadow: 0px 2px 7px 0px rgba(0, 0, 0, 0.1);
 
     .logo{
@@ -28,33 +28,70 @@ header{
       font-family: 'Lobster', sans-serif;
     }
 
-    .upload-section{
+    .menu{
       display: flex;
       align-items: center;
-      cursor: pointer;
 
-      &:hover{
+
+      .upload-section{
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+        padding: 0 20px;
+
+        &:hover{
+          .upload-button{
+            color: $dun;
+          }
+
+          .upload-icon{
+            filter: invert(1)brightness(0.54)hue-rotate(20deg)sepia(1)
+          }
+        }
+
         .upload-button{
-          color: $dun;
+          color: $caf-noir;
+          font-size: 20px;
+          outline: none;
+          font-family: 'Lobster', sans-serif;
         }
 
         .upload-icon{
-          filter: invert(1)brightness(0.54)hue-rotate(20deg)sepia(1)
+          max-width: 35px;
+          margin: 0 0 0 10px;
+        }
+
+      }
+
+      .logout-section{
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+        padding: 0 20px;
+
+        &:hover{
+          .logout-button{
+            color: $dun;
+          }
+
+          .logout-icon{
+            filter: invert(1)brightness(0.54)hue-rotate(20deg)sepia(1)
+          }
+        }
+
+
+        .logout-button{
+          color: $caf-noir;
+          font-size: 20px;
+          outline: none;
+          font-family: 'Lobster', sans-serif;
+        }
+
+        .logout-icon{
+          max-width: 35px;
+          margin: 0 0 0 10px;
         }
       }
-
-      .upload-button{
-        color: $caf-noir;
-        font-size: 20px;
-        outline: none;
-        font-family: 'Lobster', sans-serif;
-      }
-
-      .upload-icon{
-        max-width: 35px;
-        margin: 0 0 0 10px;
-      }
-
     }
 
   }

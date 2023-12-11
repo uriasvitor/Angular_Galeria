@@ -34,7 +34,7 @@ export class SignInComponent implements OnInit{
     this.authService.login(userCredentials).subscribe({
       next:(data:any)=>{
         this.inLoading = false;
-        console.log(data)
+
         this.signInEventEmit.emit({message:data.menssage, alertColorBg:'green', showAlert:true})
 
         const returnUrl = this.activeRoute.snapshot.queryParams['returnUrl'] || '/';
