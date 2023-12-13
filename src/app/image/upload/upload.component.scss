@@ -23,12 +23,34 @@
     border: 3px dotted brown;
 
     h5{
+      display: flex;
+      align-items: center;
+      justify-content: center;
       font-family: 'Roboto';
-      sfont-weight: 500;
+      font-weight: 500;
     }
   }
 
   .additional-control{
     padding: 20px;
   }
+}
+
+form{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  .publish-button{
+    width: 120px;
+    height: 60px;
+    color: black;
+    background-color: #ff0055;
+  }
+
+  .image-uploaded{
+    width: 300px;
+  }
+
 }

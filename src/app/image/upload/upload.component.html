@@ -1,13 +1,33 @@
 <div class="container">
   <div class="wrapper">
     <h1 class="title">Upload image</h1>
-    <div class="upload-area">
-      <h5>Drop the image here or</h5>
-    </div>
-    <div class="additional-control">
-      <input type="file">
-    </div>
 
-    <button class="send-button">Upload the Image</button>
+    <ng-container *ngIf="!nextStage else sectionUploadForm">
+
+      <div class="upload-area"  app-event-blocker
+        (dragend)="isDragover = false"
+        (dragover)="isDragover = true"
+        (dragenter)="isDragover = true"
+          (dragleave)="isDragover = false"
+          (mouseleave)="isDragover = false"
+          (drop)="storeFile($event)"
+          >
+          <h5>Drag and drop the Image here</h5>
+          <h5>or</h5>
+        </div>
+        <div class="additional-control">
+          <input type="file">
+        </div>
+
+      </ng-container>
+
+      <ng-template #sectionUploadForm>
+        <form [formGroup]="uploadForm" (submit)="uploadFile()">
+          <div class="remove-image" (click)="removeImage($event)">Remove Image</div>
+          <app-input [control]="title" placeholder="Enter the photo title" *ngIf="nextStage"></app-input>
+          <img [src]="fileUrl" class="image-uploaded">
+          <button class="publish-button">Publish Image</button>
+        </form>
+      </ng-template>
   </div>
 </div>
