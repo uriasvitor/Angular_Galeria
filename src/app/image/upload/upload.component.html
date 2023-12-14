@@ -8,13 +8,15 @@
         (dragend)="isDragover = false"
         (dragover)="isDragover = true"
         (dragenter)="isDragover = true"
-          (dragleave)="isDragover = false"
-          (mouseleave)="isDragover = false"
-          (drop)="storeFile($event)"
-          >
+        (dragleave)="isDragover = false"
+        (mouseleave)="isDragover = false"
+        (drop)="storeFile($event)"
+        >
+
           <h5>Drag and drop the Image here</h5>
           <h5>or</h5>
         </div>
+
         <div class="additional-control">
           <input type="file">
         </div>
@@ -23,10 +25,19 @@
 
       <ng-template #sectionUploadForm>
         <form [formGroup]="uploadForm" (submit)="uploadFile()">
-          <div class="remove-image" (click)="removeImage($event)">Remove Image</div>
-          <app-input [control]="title" placeholder="Enter the photo title" *ngIf="nextStage"></app-input>
+
+          <div class="title-field">
+            <p class="main-title">Write a file title </p>
+            <app-input class="file-title-input" [control]="title" placeholder="Enter the photo title"></app-input>
+          </div>
+
           <img [src]="fileUrl" class="image-uploaded">
-          <button class="publish-button">Publish Image</button>
+
+          <div class="controls">
+            <div class="remove-image" (click)="removeImage($event)">Remove Image</div>
+            <button class="publish-button" [disabled]="uploadForm.invalid" >Publish Image</button>
+          </div>
+
         </form>
       </ng-template>
   </div>
