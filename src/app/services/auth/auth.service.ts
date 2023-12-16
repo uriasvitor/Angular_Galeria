@@ -18,7 +18,6 @@ interface IAuthToken {
 @Injectable({
   providedIn:'root'
 })
-
 export class AuthService{
   isLoggedIn = false;
   http = inject(HttpClient)
@@ -29,7 +28,6 @@ export class AuthService{
     return this.http.post<IAuthToken>(AUTH_API + 'sign-in', userCredentials)
     .pipe(tap(authResponse => {
       this.isLoggedIn = true;
-      console.log("aqui")
       this.setSession(authResponse)
       return authResponse;
     }));

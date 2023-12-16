@@ -1,8 +1,8 @@
 <div class="container">
   <div class="wrapper">
-    <h1 class="title">Upload image</h1>
 
     <ng-container *ngIf="!nextStage else sectionUploadForm">
+      <h1 class="title">Upload your image</h1>
 
       <div class="upload-area"  app-event-blocker
         (dragend)="isDragover = false"
@@ -11,10 +11,14 @@
         (dragleave)="isDragover = false"
         (mouseleave)="isDragover = false"
         (drop)="storeFile($event)"
-        >
+        title="Drag and drop the Image here">
 
-          <h5>Drag and drop the Image here</h5>
-          <h5>or</h5>
+        <div class="upload-area-title">Drag and drop the Image here</div>
+        <div class="icon-upload">
+          <img src="../../../assets/icons/upload-icon.png">
+        </div>
+        <div class="upload-area-title">or</div>
+
         </div>
 
         <div class="additional-control">
@@ -27,8 +31,8 @@
         <form [formGroup]="uploadForm" (submit)="uploadFile()">
 
           <div class="title-field">
-            <p class="main-title">Write a file title </p>
-            <app-input class="file-title-input" [control]="title" placeholder="Enter the photo title"></app-input>
+            <p class="main-title">Rename your image</p>
+            <app-input class="file-title-input" [control]="title" placeholder="Enter the photo title" [inputClass]="'file-title-input'"></app-input>
           </div>
 
           <img [src]="fileUrl" class="image-uploaded">

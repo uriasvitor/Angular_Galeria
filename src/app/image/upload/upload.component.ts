@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { AuthService } from './../../services/auth/auth.service';
+import { UploadService} from './../../services/upload/upload.service';
+import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
@@ -6,11 +8,16 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
   templateUrl: './upload.component.html',
   styleUrls: ['./upload.component.scss']
 })
-export class UploadComponent {
+export class UploadComponent implements OnInit {
   isDragover = false;
   file: File | null = null;
   fileUrl: string | null = null;
   nextStage = false;
+
+  ngOnInit(): void {
+  }
+
+  constructor(private uploadService:UploadService, private authService:AuthService){}
 
   title = new FormControl('',{
     validators:[
@@ -23,7 +30,6 @@ export class UploadComponent {
   uploadForm = new FormGroup({
     title: this.title
   })
-
 
   storeFile($event:Event){
     $event?.preventDefault()
@@ -55,8 +61,12 @@ export class UploadComponent {
     this.nextStage = false;
   }
 
-
   uploadFile(){
+    this.uploadService.getAllImages().subscribe({
+      next:(data)=>{
+        console.log(data)
+      }
+    })
 
   }
 

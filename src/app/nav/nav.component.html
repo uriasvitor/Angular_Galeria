@@ -7,16 +7,16 @@
     <div class="menu">
       <div class="upload-section" (click)="openModal($event)">
         <div class="upload-button">Upload Image</div>
-        <img class="upload-icon" src="../../assets/logo/upload-icon.png">
+        <img class="upload-icon" src="../../assets/icons/upload-icon.png">
       </div>
       <div class="logout-section" (click)="logOut($event)">
         <div class="logout-button">Logout</div>
-        <img class="logout-icon" src="../../assets/logo/logout-icon.png">
+        <img class="logout-icon" src="../../assets/icons/logout-icon.png">
       </div>
     </div>
   </nav>
 </header>
 
 <app-modal [modalID]="'upload'">
-  <app-upload></app-upload>
+  <app-upload [ngStyle]="{'width':'100%'}"></app-upload>
 </app-modal>

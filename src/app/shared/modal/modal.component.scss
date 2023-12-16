@@ -23,11 +23,15 @@
     padding: 20px;
 
   .close-button{
-    outline: none;
-    border: 0;
-    height: 50px;
-    width: 100px;
     cursor: pointer;
+
+    img.close-icon{
+      width: 50px;
+
+      &:hover{
+        filter: invert(1);
+      }
+    }
   }
 
   .controls{
@@ -42,5 +46,3 @@
 .hidden{
   display: none;
 }
-
-

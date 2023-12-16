@@ -11,6 +11,7 @@ export class InputComponent {
   @Input() type = 'text'
   @Input() placeholder = ''
   @Input() format = ''
+  @Input() inputClass = ''
 
   constructor() { }
 

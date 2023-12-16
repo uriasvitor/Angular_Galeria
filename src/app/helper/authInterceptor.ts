@@ -20,9 +20,7 @@ export class AuthInterceptor implements HttpInterceptor{
 
         return next.handle(authClone);
     }
-
     return next.handle(req);
-
 
   }
 

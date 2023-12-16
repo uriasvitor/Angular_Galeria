@@ -24,3 +24,15 @@ input[type="number"]{
 }
 
 
+input.file-title-input{
+  appearance: none;
+  border: none;
+  outline: none;
+  border-bottom: 0.3em solid #f8b500;
+  background: rgb(0 0 0);
+  border-radius: 0.2em 0.2em 0 0;
+  padding: 18px;
+  font-size: 18px;
+  color: #ffffff;
+  border-radius: 10px;
+}

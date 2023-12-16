@@ -1,6 +1,8 @@
 <input [formControl]="control" [type]="type"
   class="form"
-  [placeholder]="placeholder" />
+  [placeholder]="placeholder"
+  [ngClass]="inputClass"
+  />
 <ng-container *ngIf="control.touched && control.dirty">
   <p class="msg error" *ngIf="control.errors?.['pattern']">
     Passwords must be at least 8 characters long, have 1
