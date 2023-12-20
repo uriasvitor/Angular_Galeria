@@ -11,7 +11,7 @@ export class HomeComponent implements OnInit {
   constructor(private modal: modalService){}
 
   ngOnInit(): void {
-
+    this.modal.register('image-details');
   }
 
 
@@ -33,6 +33,7 @@ export class HomeComponent implements OnInit {
 
   openModal(e:Event){
     e.preventDefault();
+    console.log('open')
     this.modal.toggleModal('image-details')
   }
 

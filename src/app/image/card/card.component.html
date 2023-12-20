@@ -1,0 +1,11 @@
+<div class="container">
+  <div class="content">
+    <div *ngFor="let linha of getLinhas()" class="clip-image">
+      <div *ngFor="let imagem of linha; let imagemIndex = index;" class="column">
+          <div class="quadro-container">
+            <img [src]="imagem?.src" class="quadro" alt="Imagem" [ngStyle]="{'height': maxHeight | randomHeight}">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

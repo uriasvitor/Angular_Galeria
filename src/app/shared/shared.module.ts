@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { alertComponent } from './alert/alert.component';
 import { loadingComponent } from './loading/loading.component';
 import { EventBlockerDirective } from './directives/event-blocker.directive';
+import { RandomHeightPipe } from './pipes/randomHeight.pipe';
 
 
 
@@ -10,7 +11,8 @@ import { EventBlockerDirective } from './directives/event-blocker.directive';
   declarations: [
     alertComponent,
     loadingComponent,
-    EventBlockerDirective
+    EventBlockerDirective,
+    RandomHeightPipe,
   ],
   imports: [
     CommonModule
@@ -18,7 +20,8 @@ import { EventBlockerDirective } from './directives/event-blocker.directive';
   exports:[
     alertComponent,
     loadingComponent,
-    EventBlockerDirective
+    EventBlockerDirective,
+    RandomHeightPipe
   ]
 })
 export class SharedModule { }

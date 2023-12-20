@@ -19,6 +19,7 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from './shared/shared.module';
 import { AuthInterceptor } from './helper/authInterceptor';
+import { CardComponent } from './image/card/card.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { AuthInterceptor } from './helper/authInterceptor';
     SignUpComponent,
     AuthModalComponent,
     ModalComponent,
-    UploadComponent
+    UploadComponent,
+    CardComponent
   ],
   imports: [
     BrowserModule,

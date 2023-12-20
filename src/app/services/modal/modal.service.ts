@@ -10,7 +10,7 @@ interface IModal {
   providedIn:"root"
 })
 export class modalService {
-  private modals: IModal[] =[]
+  private modals: IModal[] = []
 
   constructor(){}
 
@@ -35,6 +35,7 @@ export class modalService {
   toggleModal(id:string){
    const modal = this.modals.find(element => element.id === id)
     if(modal) {
+      console.log(modal)
       modal.visible = !modal.visible
     }
   }
