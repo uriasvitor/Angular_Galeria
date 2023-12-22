@@ -1,7 +1,14 @@
+@import '../../../styles.scss';
+
+
 .container{
   display: flex;
   align-items: center;
   justify-content: center;
+
+  @include for-small{
+    padding: 20px;
+  }
 
   form{
     display: flex;

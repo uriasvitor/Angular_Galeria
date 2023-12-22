@@ -71,6 +71,11 @@ header{
 
         .upload-icon{
           max-width: 35px;
+          margin: 0 0 0 10px;
+
+          @include for-small{
+            margin: 0;
+          }
         }
 
       }
