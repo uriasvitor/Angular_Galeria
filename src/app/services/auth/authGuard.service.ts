@@ -9,8 +9,6 @@ export const authGuard = () => {
   const idToken = localStorage.getItem("id_token")
 
   if (authService.isLoggedIn || idToken) {
-    console.log(authService.isLoggedIn)
-    console.log(idToken)
     router.parseUrl('/');
     return true;
   }
