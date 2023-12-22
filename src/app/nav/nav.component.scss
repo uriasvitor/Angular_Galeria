@@ -1,4 +1,5 @@
 @import '../../assets/styles/variables';
+@import '../../assets/styles/mixins';
 
 header{
   width: 100%;
@@ -27,12 +28,15 @@ header{
       color: #563b2b;;
       font-family: 'Sevillana', cursive;
       transform: translateX(120px);
+
+      @include for-medium{
+        transform: none;
+      }
     }
 
     .menu{
       display: flex;
       align-items: center;
-
 
       .upload-section{
         display: flex;
@@ -40,8 +44,12 @@ header{
         cursor: pointer;
         padding: 0 20px;
 
+        @include for-small{
+          padding: 0 5px;
+        }
+
         &:hover{
-          .upload-button{
+          .upload-title{
             color: $dun;
           }
 
@@ -50,16 +58,19 @@ header{
           }
         }
 
-        .upload-button{
+        .upload-title{
           color: $caf-noir;
           font-size: 20px;
           outline: none;
           font-family: 'Lobster', sans-serif;
+
+          @include for-small{
+            display: none;
+          }
         }
 
         .upload-icon{
           max-width: 35px;
-          margin: 0 0 0 10px;
         }
 
       }
@@ -70,8 +81,12 @@ header{
         cursor: pointer;
         padding: 0 20px;
 
+        @include for-small{
+          padding: 0 2px;
+        }
+
         &:hover{
-          .logout-button{
+          .logout-title{
             color: $dun;
           }
 
@@ -80,12 +95,16 @@ header{
           }
         }
 
-
-        .logout-button{
+        .logout-title{
           color: $caf-noir;
           font-size: 20px;
           outline: none;
           font-family: 'Lobster', sans-serif;
+
+          @include for-small{
+            display: none;
+          }
+
         }
 
         .logout-icon{

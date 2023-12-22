@@ -35,7 +35,6 @@ export class AuthService{
 
   setSession(authResponse:IAuthToken){
     const expireAt = moment().add(authResponse.expiresIn, 'second')
-    console.log(authResponse)
     localStorage.setItem('id_token', authResponse.token)
     localStorage.setItem('expire_At', JSON.stringify(expireAt.valueOf()))
   }

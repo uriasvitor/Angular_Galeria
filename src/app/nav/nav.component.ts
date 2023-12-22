@@ -1,7 +1,6 @@
 import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { modalService } from '../services/modal/modal.service';
-import { UploadComponent } from '../image/upload/upload.component';
 import { AuthService } from '../services/auth/auth.service';
 
 @Component({
@@ -13,11 +12,9 @@ import { AuthService } from '../services/auth/auth.service';
 export class NavComponent implements OnInit {
   constructor(private modal: modalService, private auth:AuthService, private router:Router){}
 
-
   ngOnInit(): void {
     this.modal.register('upload');
   }
-
 
   openModal(e:Event){
     e.preventDefault();
